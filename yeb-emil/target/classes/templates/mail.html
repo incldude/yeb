@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.theymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    欢迎 <span th:text="${name}"></span>加入xxxx大家庭，信息如下
+<table border="1">
+
+    <tr>
+        <td>姓名</td>
+        <td th:text="${name}"></td>
+    </tr>
+    <tr>
+        <td>职位</td>
+        <td th:text="${posName}"></td>
+    </tr>
+    <tr>
+        <td>职称</td>
+        <td th:text="${jobleveName}"></td>
+    </tr>
+    <tr>
+    <td>部门</td>
+    <td th:text="${departmentName}"></td>
+</tr>
+</table>
+
+</body>
+</html>

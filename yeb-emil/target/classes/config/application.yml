@@ -1,0 +1,44 @@
+server:
+  port: 8082
+
+spring:
+  # 邮件配置
+  mail:
+    default-encoding: UTF-8
+    host: smtp.qq.com
+    password: soeijtkrlhoeeadd
+    port: 587
+    username: 2383480292@qq.com
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+          starttls:
+            enable: true
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 192.168.205.128
+    port: 5672
+    listener:
+      simple:
+        acknowledge-mode: manual
+  redis:
+    #超时时间
+    timeout: 10000ms
+    #链接地址
+    host: 192.168.205.128
+    #端口
+    port: 6379
+    #数据可号
+    database: 0
+    #密码
+    password: root
+    lettuce:
+      pool:
+        max-active: 1024
+        max-wait: 10000ms
+        max-idle: 200
+        min-idle: 5

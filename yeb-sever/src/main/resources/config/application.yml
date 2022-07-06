@@ -1,0 +1,76 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yeb?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    hikari:
+      #连接池名称
+      pool-name: DateHikariCP
+      #最小空闲链接树
+      minimum-idle: 5
+      #最大空闲链接时间
+      idle-timeout: 180000
+      #最大连接数
+      maximum-pool-size: 10
+      #从连接池返回的
+      auto-commit: true
+      #连接存货最大时间
+      max-lifetime: 180000
+      #链接超时时间
+      connection-timeout: 30000
+      #测试链接是否可用的查询语句
+      connection-test-query: SELECT 1
+
+  redis:
+    #超时时间
+    timeout: 10000ms
+    #链接地址
+    host: 192.168.205.128
+    #端口
+    port: 6379
+    #数据可号
+    database: 0
+    #密码
+    password: root
+    lettuce:
+      pool:
+        max-active: 1024
+        max-wait: 10000ms
+        max-idle: 200
+        min-idle: 5
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 192.168.205.128
+    port: 5672
+    #消息确认回调
+    publisher-confirm-type: correlated
+    #消息失败回调
+    publisher-returns: true
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  #配置mybatis数据返回类型别名
+  type-aliases-package: com.xxxx.server.pojo
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: false
+
+logging:
+  level:
+    com.xxxx.server.mapper: debug
+
+jwt:
+  # Jwt存储的请求头
+  tokenHeader: Authorization
+  # Jwt加密秘钥
+  secret: yeb-secret
+  # Jwt 的超期限时间（60*60）*24
+  expiration: 604800
+  # Jwt负载中拿到开头
+  tokenHead: Bearer
+
